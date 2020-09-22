@@ -1,9 +1,23 @@
-let body = document.body;
-let preloaderEl = document.getElementById('preloader');
-setTimeout(function() {
-   preloaderEl.classList.add('hidden');
-}, 5000);
-let d = new Date();
+   let body = document.body;
+   let preloader = document.getElementById("preloader_preload");
+
+   function fadeOutnojquery(el) {
+      el.style.opacity = 1;
+      var interpreloader = setInterval(function () {
+         el.style.opacity = el.style.opacity - 0.05;
+         if (el.style.opacity <= 0.05) {
+            clearInterval(interpreloader);
+            preloader.style.display = "none";
+         }
+      }, 16);
+   }
+
+   window.onload = function () {
+      setTimeout(function () {
+         fadeOutnojquery(preloader);
+      }, 5000);
+   };
+   let d = new Date();
    let name = 'saifieva98';
    let url = `https://api.github.com/users/${name}`;
    let newDate = new Promise( (resolve, reject) => {
