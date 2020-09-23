@@ -18,8 +18,16 @@
       }, 5000);
    };
    let d = new Date();
-   let name = 'saifieva98';
-   let url = `https://api.github.com/users/${name}`;
+   let getName = () =>  {
+      let url = window.location.toString();
+      let g = url.split('=');
+      let name = g[1];
+      if (name === undefined) {
+         name = 'saifieva98';
+      }
+   return name;
+   }
+   let url = `https://api.github.com/users/${getName()}`;
    let newDate = new Promise( (resolve, reject) => {
       setTimeout(() => d ? resolve(d) : reject('Ошибка'), 3000);
    })
