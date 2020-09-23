@@ -22,9 +22,9 @@
       let url = window.location.toString();
       let g = url.split('=');
       let name = g[1];
-      if (name === undefined) {
+      if (name == undefined) {
          name = 'saifieva98';
-      }
+      } 
    return name;
    }
    let url = `https://api.github.com/users/${getName()}`;
